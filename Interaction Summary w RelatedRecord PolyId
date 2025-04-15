@@ -1,0 +1,20 @@
+SELECT Id, RelatedRecordId, RelatedRecord.Name, RelatedRecord.Id, Name, Breakfast_Eaten__c, Lunch_Eaten__c, Dinner_Eaten__c, Meal_Eaten__c, MeetingNotes, Date_of_Interaction__c,
+    Shift_Log__r.Id, Shift_Log__r.Additional_Food__c, Shift_Log__r.General_Notes__c, Shift_Log__r.Main_Course_Sides__c,
+    Shift_Log__r.Meal__c, Shift_Log__r.Name, Shift_Log__r.Program__c, Shift_Log__r.Shift_Date__c,
+    Shift_Log__r.Shift__c, Shift_Log__r.The_Source_Shelter_Shift__c, Shift_Log__r.Volunteers__c,
+    Shift_Log__r.Volunteer_Notes__c
+
+FROM InteractionSummary
+WHERE Date_of_Interaction__c >= 2024-10-01
+
+SELECT Id, RelatedRecordId, Name, Breakfast_Eaten__c, Lunch_Eaten__c, Dinner_Eaten__c, Meal_Eaten__c, MeetingNotes, Date_of_Interaction__c,
+    Shift_Log__r.Id, Shift_Log__r.Additional_Food__c, Shift_Log__r.General_Notes__c, Shift_Log__r.Main_Course_Sides__c,
+    Shift_Log__r.Meal__c, Shift_Log__r.Name, Shift_Log__r.Program__c, Shift_Log__r.Shift_Date__c,
+    Shift_Log__r.Shift__c, Shift_Log__r.The_Source_Shelter_Shift__c, Shift_Log__r.Volunteers__c,
+    Shift_Log__r.Volunteer_Notes__c,
+    TYPEOF RelatedRecord
+        WHEN BenefitAssignment THEN Id, Name
+        WHEN Case THEN Id, Individuals_Name__c
+    END
+FROM InteractionSummary
+WHERE Date_of_Interaction__c >= 2024-10-01
