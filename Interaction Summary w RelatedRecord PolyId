@@ -18,3 +18,10 @@ SELECT Id, RelatedRecordId, Name, Breakfast_Eaten__c, Lunch_Eaten__c, Dinner_Eat
     END
 FROM InteractionSummary
 WHERE Date_of_Interaction__c >= 2024-10-01
+
+
+
+SELECT Id, Name, BenefitAssignment.EnrolleeId, BenefitAssignment.Enrollee.Name, BenefitAssignmentId, BenefitAssignment.Benefit.Name, BenefitAssignment.StartDateTime, 
+BenefitAssignment.EndDateTime,  ProgramEnrollmentId, ProgramEnrollment.ProgramId, ProgramEnrollment.Program.Name 
+FROM BenefitDisbursement
+WHERE BenefitAssignment.StartDateTime >= 2024-10-01T19:00:00.000Z
