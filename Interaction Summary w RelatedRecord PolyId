@@ -25,3 +25,6 @@ SELECT Id, Name, BenefitAssignment.EnrolleeId, BenefitAssignment.Enrollee.Name, 
 BenefitAssignment.EndDateTime,  ProgramEnrollmentId, ProgramEnrollment.ProgramId, ProgramEnrollment.Program.Name 
 FROM BenefitDisbursement
 WHERE BenefitAssignment.StartDateTime >= 2024-10-01T19:00:00.000Z
+
+SELECT Id, Name, BenefitStatus, BenefitTypeId, BenefitType.Name, ProgramId, Program.Name, Benefit_Type_Category__c
+FROM Benefit
